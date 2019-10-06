@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Exercise from './Exercise';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
+import { orange } from '@material-ui/core/colors'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const theme = createMuiTheme({
+    palette: { 
+        primary: {  light: orange[200],  // same as '#FFCC80'      
+                    main: '#FB8C00',     // same as orange[600]      
+                    dark: '#EF6C00',      
+                    contrastText: 'rgb(0,0,0)'   
+        }  
+    }
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<MuiThemeProvider theme={theme}> <Exercise /> </MuiThemeProvider>, document.getElementById('root'));
