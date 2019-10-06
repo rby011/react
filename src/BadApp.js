@@ -8,7 +8,7 @@ import { List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Divi
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-class Exercise extends Component {
+class BadApp extends Component {
   state = {
     exercises: [],
     title: ''
@@ -97,4 +97,4 @@ class Exercise extends Component {
   }
 }
 
-export default Exercise;
+export default BadApp;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Exercise from './Exercise';
+import App from './App';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { orange } from '@material-ui/core/colors'
 
@@ -14,4 +14,4 @@ const theme = createMuiTheme({
     }
 });
 
-ReactDOM.render(<MuiThemeProvider theme={theme}> <Exercise /> </MuiThemeProvider>, document.getElementById('root'));
+ReactDOM.render(<MuiThemeProvider theme={theme}> <App/> </MuiThemeProvider>, document.getElementById('root'));
