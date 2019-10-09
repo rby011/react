@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Typography, Grid, TextField, Button, Paper } from '@material-ui/core';
-import SaveIcon from '@material-ui/icons/Save';
+import { Paper } from '@material-ui/core';
 import ExerciseList from './components/ExerciseList'
 import ExerciseForm from './components/ExerciseForm';
 
@@ -39,13 +38,14 @@ class App extends Component{
 
     render(){
         const {title, exercises} = this.state;
+        const {handleChange, handleCreate, handleDelete} = this;
         return (
             <React.Fragment> 
                 <Paper>
-                    <ExerciseForm handleChange={this.handleChange} handleCreate={this.handleCreate} title={title}/>
+                    <ExerciseForm handleChange={handleChange} handleCreate={handleCreate} title={title}/>
                 </Paper>
                 <Paper>
-                    <ExerciseList exercises={exercises} handleDelete={this.handleDelete}/>
+                    <ExerciseList exercises={exercises} handleDelete={handleDelete}/>
                 </Paper>
             </React.Fragment>  
         );
