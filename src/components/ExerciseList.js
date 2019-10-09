@@ -3,22 +3,19 @@ import {List, Grid} from '@material-ui/core';
 import Exercise from './Exercise';
 
 class ExerciseList extends Component {
-    shouldComponentUpdate(nextProps, nextState){
-        const {exercises} = this.props;
-        return exercises.length > 0 ;
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.exercises !== this.props.excersises;
     }
 
-    render(){
+    render() {
         const {exercises, handleDelete} = this.props;
+        const listItems = exercises.map( 
+            ex => <Exercise key={ex.id} title={ex.title} handleDelete={()=>handleDelete(ex.id)}/>
+        );
         return (
+            listItems.length > 0 && 
             <Grid container spacing={2} direction='column'>
-                exercises.length > 0 && {
-                    <List>
-                        exercises.map( (ex) => (
-                            <Exercise key={ex.id} title={ex.title} handleDelete={()=>handleDelete(ex.id)}/>
-                        ))
-                    </List>
-                }
+                <List> {listItems} </List>
             </Grid>
         );
     }

@@ -12,7 +12,9 @@ class App extends Component{
 
     handleDelete = ((id) => {
         this.setState(
-            ({ exercises }) => ({ exercises: exercises.filter(exercise => exercise.id !== id) })
+            ({ exercises }) => ({ 
+                exercises: exercises.filter(exercise => exercise.id !== id) 
+            })
         )
       }
     )
@@ -23,10 +25,9 @@ class App extends Component{
 
     handleCreate = (e) => {
         e.preventDefault();
-        
         this.setState(
             ({exercises, title}) => ({
-                excersises:[
+                exercises:[
                     ...this.state.exercises,
                     {title, id: Date.now()}
                 ],
