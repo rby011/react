@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Typography, Grid, TextField, Button, Paper } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import ExerciseList from './components/ExerciseList'
+import ExerciseForm from './components/ExerciseForm';
 
 
 class App extends Component{
@@ -38,31 +39,10 @@ class App extends Component{
 
     render(){
         const {title, exercises} = this.state;
-
         return (
             <React.Fragment> 
                 <Paper>
-                    <Grid container spacing={2} direction='column'>
-                        <Grid item>
-                            <Typography variant='h4' color='primary' align='center' gutterBottom>
-                                Excersise    
-                            </Typography>
-                        </Grid>
-                        <Grid item>
-                            <form onSubmit={this.handleCreate}>
-                            <Grid container spacing={2} direction='row' justify='center' alignItems='center' alignContent='center'>
-                                <Grid item>
-                                    <TextField name='title' label='Register your onw' value={title} onChange={this.handleChange} margin='normal'/>
-                                </Grid>
-                                <Grid item>
-                                        <Button type='submit' color='primary' variant='contained' startIcon={<SaveIcon/>}>
-                                            Add Item
-                                        </Button>   
-                                </Grid>
-                            </Grid>
-                            </form>
-                        </Grid>
-                    </Grid>
+                    <ExerciseForm handleChange={this.handleChange} handleCreate={this.handleCreate} title={title}/>
                 </Paper>
                 <Paper>
                     <ExerciseList exercises={exercises} handleDelete={this.handleDelete}/>
